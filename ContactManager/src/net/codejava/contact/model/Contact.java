@@ -10,13 +10,19 @@ public class Contact {
 	private String address;
 	private String phone;
 	public Contact(Integer id, String name, String email, String address, String phone) {
-		super();
-		this.id = id;
+	
+		this(name,email,address,phone);
+		this.id=id;
+	}
+	
+	public Contact(String name, String email, String address, String phone) {
+		
 		this.name = name;
 		this.email = email;
 		this.address = address;
 		this.phone = phone;
 	}
+	
 	public Integer getId() {
 		return id;
 	}
