@@ -3,6 +3,7 @@ package net.codejava.contact.dao;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -15,26 +16,33 @@ class ContactDAOTest {
 	
 	private ContactDAO dao;
 	
-	@Test
-	void testSave() {
+	
+	@BeforeEach
+	void setupBeforeEach() {
 		dataSource=new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/contactdb");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/contactdb?useSSL=false");
 		dataSource.setUsername("root");
 		dataSource.setPassword("6216sj");
 		
 		
 		dao=new ContactDAOImpl(dataSource);
-		
-		Contact contact=new Contact("Steve Jobs","steve@apple.com","Cupertino,CA","010-123-456");
+	
+	}
+	
+	@Test
+	void testSave() {
+		Contact contact=new Contact("Bill Gates","bill@naver.com","Random,WA","010-334-556");
 		int result =dao.save(contact);
 		assertTrue(result >0);
-		
 	}
 
 	@Test
 	void testUpdate() {
-		fail("Not yet implemented");
+		Contact contact=new Contact(4,"Bill Gates","bill@naet.com","Random,WA","010-334-556");
+		int result=dao.update(contact);
+		
+		assertTrue(result>0);
 	}
 
 	@Test

@@ -30,9 +30,10 @@ public class ContactDAOImpl implements ContactDAO {
 
 	
 	
-	public int update(Contact contact) {
+	public int update(Contact c) {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql="UPDATE Contact SET name=?,email=?,address=?,phone=? WHERE contact_id=?";
+		return jdbcTemplate.update(sql,c.getName(),c.getEmail(),c.getAddress(),c.getPhone(),c.getId());
 	}
 
 	public Contact get(Integer id) {
