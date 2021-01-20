@@ -53,6 +53,13 @@ public class Contact {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	@Override
+	public String toString() {
+		return "Contact [id=" + id + ", name=" + name + ", email=" + email + ", address=" + address + ", phone=" + phone
+				+ "]";
+	}
+	
 	
 	
 	

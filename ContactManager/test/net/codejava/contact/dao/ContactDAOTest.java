@@ -1,7 +1,10 @@
 package net.codejava.contact.dao;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,17 +50,34 @@ class ContactDAOTest {
 
 	@Test
 	void testGet() {
-		fail("Not yet implemented");
+		Integer id=1;
+		Contact contact =dao.get(id);
+		
+		
+		if(contact !=null) {
+			System.out.println(contact);
+		}
+		assertNotNull(contact);
+		
 	}
 
 	@Test
 	void testDelete() {
-		fail("Not yet implemented");
+		Integer id=5;
+		int result=dao.delete(id);
+		
+		assertTrue(result>0);
 	}
 
 	@Test
 	void testList() {
-		fail("Not yet implemented");
+		List<Contact> listContacts=dao.list();
+		
+		
+		for(Contact aContact : listContacts) {
+			System.out.println(aContact);
+		}
+		assertTrue(!listContacts.isEmpty());
 	}
 
 }
