@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>New/Edit Contact</title>
 </head>
 <body>
@@ -13,7 +13,9 @@
 		<h1>New/Edit Contact</h1>
 		<form:form action="save" method="post"  modelAttribute="contact">
 		
-		<table cellpadding="5">	
+		<table cellpadding="5">
+		
+		<form:hidden path="id" />	
 			<tr>
 				<td>Name:</td>
 				<td><form:input path="name" /></td>
